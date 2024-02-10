@@ -1,4 +1,4 @@
-#fonzalik {background-image: url("fon/fonzalik.jpg");background-size: cover;}
+#fonzalik {background-image: url(fon/fonzalik.jpg);background-size: cover;}
 
 #fonsocial {background-image: url(fon/fonsocial.jpg);background-size: cover;}
 
@@ -10,7 +10,7 @@
 
 #fonekonomika {background-image: url(fon/fonekonomika.jpg);background-size: cover;}
 
-#fonanketa {background-image: url('fon/fonanketa.jpg');background-size: cover;}
+#fonanketa {background-image: url(fon/fonanketa.jpg);background-size: cover;}
 
 .fontext {background-color:#fsfsdc; width:75%; margin: auto;
 border-radius: 20px;
