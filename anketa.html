@@ -10,7 +10,7 @@
     <img src="img/header.jpg" width="100%" class="header">
     <div id="fontextanketa">
         <h1>Анкета</h1><br>
-        <form name="anketa" method="POST" data-netlify="true" action="https://app.netlify.com/sites/krasnograd/forms" onsubmit="submitForm(event)">
+        <form action="#" class="form" netlify id="form">
             <fieldset>
                 <legend>Місто та я</legend>
                 1. Чи давно ви живете в цьому місті?<br>
@@ -49,25 +49,13 @@
             </fieldset>
         </form>
     </div>
-
-
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            fetch('/', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                alert('Дякуємо за заповнення анкети');
-                event.target.reset();
-            })
-            .catch(error => console.error('There has been a problem with your fetch operation:', error));
-        }
-    </script>
+    <div class="menu">
+<a href="geografia.html">Географія й основні відомості</a>
+<a href="istoria.html">Історія</a>
+<a href="ekonomika.html">Економіка</a>
+<a href="social.html">Соціальна сфера і культура</a>
+<a href="personi.html">Персоналії, пов'язані з містом</a>
+<a href="anketa.html">Анкета</a>
+</div>
 </body>
 </html>
