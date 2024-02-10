@@ -1,89 +1,88 @@
 <html>
 <head>
-<title>
-Красноград - Залік 3 - Анкета
-</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
+  <title>Красноград - Залік 3 - Анкета</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body id="fonanketa">
-<img src="img/header.jpg" width="100%" class="header">
-<div id="fontextanketa">
-<H1>Анкета</H1><br>
-<form name="anketa" method="POST" data-netlify="true" onsubmit="submitForm(event)">
-  <fieldset>
-    <legend>Місто та я</legend>
-    1. Чи давно ви живете в цьому місті?
-    <br>
-    <select name="misto">
-      <option value="1m"> 5 років</option>
-      <option value="2m"> 7 років</option>
-      <option value="3m"> 10 років</option>
-      <option value="4m"> 11-16 років</option>
-    </select>
-    <br><br> 
-    2. Введіть Стать 
-    <br>
-    <input type="radio" name="pol" checked value="Ch">  Чол. 
-    <input type="radio" name="pol" value="J">  Жін.
-    <br><br>
-    3. Як ви добираєтеся до школи? 
-    <br>
-    <select name="doroga">
-      <option value="1d">Пішки</option>
-      <option value="2d">Автобус</option>
-      <option value="3d">Тролейбус</option>
-      <option value="4d">Маршрутка</option>
-      <option value="5d">Машина</option>
-    </select>
-    <br><br>
-    4. Який фільм в останній раз ви дивилися та у якому кінотеатрі?
-    (Введіть відповідь)
-    <br>
-    <input type="text" name="kino" size="40" maxlength ="50">
-    <br><br>
-    5. Де у місті ви проводите свій вільний час? 
-    <br>
-    <select name="chas" multiple size="5">
-      <option value="cat1">За комп'ютером</option>
-      <option value="cat2">У дворі</option>
-      <option value="cat3">На природі</option>
-      <option value="cat4">Читаю книжки будь-де</option>
-      <option value="cat5">У торговому центрі</option>
-    </select>
-    <br><br>
-    6. Моє хоббі. 
-    <br>
-    <input type="checkbox" name="hobby" checked>Створення сайтів
-    <br>
-    <input type="checkbox" name="hobby">Гра в онлайн-ігри
-    <br>
-    <input type="checkbox" name="hobby">Спорт
-    <br>
-    <input type="checkbox" name="hobby">Подорожі
-    <br><br>
-    <button type="submit">Завантажити</button>
-  </fieldset>
-</form>
+  <img src="img/header.jpg" width="100%" class="header">
+  <div id="fontextanketa">
+    <h1>Анкета</h1><br>
+    <form name="anketa" method="POST" data-netlify="true" action="/your-netlify-form-url" onsubmit="submitForm(event)">
+      <fieldset>
+        <legend>Місто та я</legend>
+        1. Чи давно ви живете в цьому місті?
+        <br>
+        <select name="misto">
+          <option value="1m"> 5 років</option>
+          <option value="2m"> 7 років</option>
+          <option value="3m"> 10 років</option>
+          <option value="4m"> 11-16 років</option>
+        </select>
+        <br><br> 
+        2. Введіть Стать 
+        <br>
+        <input type="radio" name="pol" checked value="Ch">  Чол. 
+        <input type="radio" name="pol" value="J">  Жін.
+        <br><br>
+        3. Як ви добираєтеся до школи? 
+        <br>
+        <select name="doroga">
+          <option value="1d">Пішки</option>
+          <option value="2d">Автобус</option>
+          <option value="3d">Тролейбус</option>
+          <option value="4d">Маршрутка</option>
+          <option value="5d">Машина</option>
+        </select>
+        <br><br>
+        4. Який фільм в останній раз ви дивилися та у якому кінотеатрі?
+        (Введіть відповідь)
+        <br>
+        <input type="text" name="kino" size="40" maxlength ="50">
+        <br><br>
+        5. Де у місті ви проводите свій вільний час? 
+        <br>
+        <select name="chas" multiple size="5">
+          <option value="cat1">За комп'ютером</option>
+          <option value="cat2">У дворі</option>
+          <option value="cat3">На природі</option>
+          <option value="cat4">Читаю книжки будь-де</option>
+          <option value="cat5">У торговому центрі</option>
+        </select>
+        <br><br>
+        6. Моє хоббі. 
+        <br>
+        <input type="checkbox" name="hobby" checked>Створення сайтів
+        <br>
+        <input type="checkbox" name="hobby">Гра в онлайн-ігри
+        <br>
+        <input type="checkbox" name="hobby">Спорт
+        <br>
+        <input type="checkbox" name="hobby">Подорожі
+        <br><br>
+        <button type="submit">Завантажити</button>
+      </fieldset>
+    </form>
 
-<script>
-  function submitForm(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    fetch('/', {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fetch('/', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          alert('Дякуємо за заповнення анкети');
+          event.target.reset();
+        })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
       }
-      alert('Дякуємо за заповнення анкети');
-      event.target.reset();
-    })
-    .catch(error => console.error('There has been a problem with your fetch operation:', error));
-  }
-</script>
+    </script>
 
+  </div>
 </body>
 </html>
