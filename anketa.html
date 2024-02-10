@@ -74,5 +74,55 @@
 <a href="personi.html">Персоналії, пов'язані з містом</a>
 <a href="anketa.html">Анкета</a>
 </div>
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Находим форму по ее ID
+        var form = document.getElementById('anketa-form');
+
+        // Добавляем обработчик события отправки формы
+        form.addEventListener('submit', function(event) {
+            // Отменяем стандартное действие отправки формы
+            event.preventDefault();
+
+            // Получаем значения полей формы
+            var duration = form.elements['misto'].value;
+            var gender = form.elements['pol'].value;
+            var transportation = form.elements['doroga'].value;
+            var lastMovie = form.elements['kino'].value;
+            var leisureActivities = [];
+            for (var i = 0; i < form.elements['chas'].options.length; i++) {
+                if (form.elements['chas'].options[i].selected) {
+                    leisureActivities.push(form.elements['chas'].options[i].value);
+                }
+            }
+            var hobbies = [];
+            var checkboxes = form.elements['hobby'];
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    hobbies.push(checkboxes[i].value);
+                }
+            }
+
+            // Создаем объект с данными пользователя
+            var userData = {
+                'duration': duration,
+                'gender': gender,
+                'transportation': transportation,
+                'lastMovie': lastMovie,
+                'leisureActivities': leisureActivities,
+                'hobbies': hobbies
+            };
+
+            // Выводим данные пользователя в консоль (здесь можно отправить данные на сервер)
+            console.log(userData);
+
+            // Можно также отправить данные на сервер с помощью AJAX-запроса
+
+            // Выводим сообщение благодарности
+            alert('Дякуємо за заповнення анкети!');
+        });
+    });
+</script>
+
 </body>
 </html>
